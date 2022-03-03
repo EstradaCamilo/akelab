@@ -1,0 +1,21 @@
+.fibonacci {
+  @apply grid gap-4;
+  h1 {
+    @apply text-4xl font-normal text-center;
+  }
+  form {
+    @apply flex gap-4 items-end;
+    div {
+      @apply w-full sm:w-5/6;
+    }
+    button {
+      @apply w-full sm:w-1/6;
+    }
+  }
+  .numbers {
+    @apply flex flex-wrap gap-2;
+    div {
+      @apply bg-indigo-50 text-indigo-700 rounded-md px-4 py-2;
+    }
+  }
+}

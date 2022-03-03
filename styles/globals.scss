@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  [type="text"],
+  [type="number"],
+  select {
+    @apply border border-slate-200 rounded-md placeholder-slate-400 text-slate-700;
+    @apply focus:outline-none focus:ring-indigo-600 focus:border-indigo-600 focus:z-10;
+    max-height: 40px;
+    min-height: 40px;
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-slate-200 rounded text-indigo-600 focus:ring-indigo-600 cursor-pointer;
+  }
+  select {
+    @apply cursor-pointer;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  label {
+    @apply text-slate-800;
+  }
+  label {
+    @apply cursor-pointer w-fit;
+  }
+  main {
+    @apply container mt-12 px-4 py-4 2xl:px-0;
+  }
+  #__next {
+    @apply bg-slate-50;
+    min-height: calc(100vh - 48px);
+  }
+}
+
+@layer components {
+  .box {
+    @apply p-4 rounded-md shadow-sm bg-white border border-slate-50;
+  }
+  .customInput {
+    @apply flex flex-col gap-1;
+  }
+  .btn {
+    @apply py-2 px-3 rounded-md border-transparent focus:outline-none flex items-center justify-center gap-1;
+    max-height: 40px;
+    min-height: 40px;
+    &.btn-indigo {
+      @apply text-white bg-indigo-600 hover:bg-indigo-700 hover:border-indigo-800;
+    }
+    &.btn-indigo-outline {
+      @apply text-indigo-600 border border-b-4 border-indigo-600 hover:border-indigo-700;
+    }
+  }
+}
