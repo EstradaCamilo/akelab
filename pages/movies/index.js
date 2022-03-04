@@ -8,7 +8,9 @@ export default function Multiples() {
       <Head>
         <title>Movies</title>
       </Head>
-      <div className={styles.movies}></div>
+      <div className={styles.movies}>
+        <h1>Movies</h1>
+      </div>
     </MainLayout>
   );
 }

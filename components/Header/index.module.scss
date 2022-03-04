@@ -3,7 +3,7 @@
   nav {
     @apply flex;
     ul {
-      @apply flex items-center gap-4;
+      @apply flex items-center gap-2 sm:gap-3;
       li {
           @apply flex;
         max-height: 40px;

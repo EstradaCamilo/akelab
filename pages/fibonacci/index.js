@@ -39,6 +39,7 @@ export default function Fibonacci() {
         <title>Fibonacci</title>
       </Head>
       <div className={styles.fibonacci}>
+        <h1>Fibonacci</h1>
         <form className={`box`} onSubmit={handleSubmit}>
           <div className={`customInput`}>
             <label htmlFor="number">Number</label>

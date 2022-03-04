@@ -43,6 +43,7 @@ export default function Multiples() {
         <title>Multiples</title>
       </Head>
       <div className={styles.multiples}>
+        <h1>Multiples</h1>
         <form className={`box`} onSubmit={handleSubmit}>
           <div className={`customInput`}>
             <label htmlFor="number">Number</label>
