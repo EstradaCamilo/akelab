@@ -767,6 +767,6 @@ export default function handler(req, res) {
   if (akelab != "123456789") {
     res.status(401).json({ msg: "unauthorized" });
   } else {
-    res.status(200).json(movies);
+    res.status(200).json({ msg: "success", movies: movies });
   }
 }

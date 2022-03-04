@@ -42,7 +42,7 @@
 
 @layer components {
   .box {
-    @apply p-4 rounded-md shadow-sm bg-white border border-slate-50;
+    @apply p-4 rounded-md shadow-sm bg-white;
   }
   .customInput {
     @apply flex flex-col gap-1;

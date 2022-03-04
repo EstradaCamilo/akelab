@@ -3,4 +3,7 @@
   h1 {
     @apply text-4xl font-normal text-center;
   }
+  .collectionMovies {
+    @apply grid grid-cols-2 sm:grid-cols-5 gap-4;
+  }
 }
