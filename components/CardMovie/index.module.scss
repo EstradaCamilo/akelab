@@ -1,0 +1,25 @@
+article.cardMovie {
+  @apply grid gap-4;
+  .title {
+    @apply text-xl;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .description {
+    @apply font-light;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .meta {
+    div {
+        @apply flex gap-2;
+      p:last-child {
+        @apply font-light;
+      }
+    }
+  }
+}

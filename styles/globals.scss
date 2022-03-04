@@ -5,8 +5,9 @@
 @layer base {
   [type="text"],
   [type="number"],
+  [type="search"],
   select {
-    @apply border border-slate-200 rounded-md placeholder-slate-400 text-slate-700;
+    @apply border border-slate-100 rounded-md placeholder-slate-400 text-slate-700;
     @apply focus:outline-none focus:ring-indigo-600 focus:border-indigo-600 focus:z-10;
     max-height: 40px;
     min-height: 40px;
@@ -42,13 +43,14 @@
 
 @layer components {
   .box {
-    @apply p-4 rounded-md shadow-sm bg-white;
+    // @apply p-4 rounded-md shadow-sm bg-white;
+    @apply p-4 rounded-md border border-slate-100 bg-white;
   }
   .customInput {
     @apply flex flex-col gap-1;
   }
   .btn {
-    @apply py-2 px-3 rounded-md border-transparent focus:outline-none flex items-center justify-center gap-1;
+    @apply py-2 px-3 rounded-md focus:outline-none flex items-center justify-center gap-1;
     max-height: 40px;
     min-height: 40px;
     &.btn-indigo {

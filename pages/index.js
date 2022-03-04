@@ -4,7 +4,7 @@ export default function Index() {
   return (
     <MainLayout>
       <Head>
-        <title>Index</title>
+        <title>Inicio</title>
       </Head>
     </MainLayout>
   );

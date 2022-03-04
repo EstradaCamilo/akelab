@@ -40,10 +40,10 @@ export default function Multiples() {
   return (
     <MainLayout>
       <Head>
-        <title>Multiples</title>
+        <title>Múltiplos</title>
       </Head>
       <div className={styles.multiples}>
-        <h1>Multiples</h1>
+        <h1>Múltiplos</h1>
         <form className={`box`} onSubmit={handleSubmit}>
           <div className={`customInput`}>
             <label htmlFor="number">Number</label>
@@ -52,12 +52,12 @@ export default function Multiples() {
               name="number"
               type="number"
               min="1"
-              placeholder="Enter a number"
+              placeholder="Ingrese un número"
               onChange={handleInputChange}
             />
           </div>
           <button type="submit" className="btn btn-indigo">
-            Generate
+            Generar
           </button>
         </form>
         {numbers.length > 0 ? (

@@ -48,12 +48,12 @@ export default function Fibonacci() {
               name="number"
               type="number"
               min="1"
-              placeholder="Enter a number"
+              placeholder="Ingrese un número"
               onChange={handleInputChange}
             />
           </div>
           <button type="submit" className="btn btn-indigo">
-            Generate
+            Generar
           </button>
         </form>
         {fibonacci.length > 0 ? (

@@ -10,7 +10,7 @@ export default function Header() {
         <ul className={styles.options}>
           <li>
             <Link href="/">
-              <a className={pathname === "/" ? styles.active : ""}>Index</a>
+              <a className={pathname === "/" ? styles.active : ""}>Inicio</a>
             </Link>
           </li>
           <li>
@@ -23,14 +23,14 @@ export default function Header() {
           <li>
             <Link href="/multiples">
               <a className={pathname === "/multiples" ? styles.active : ""}>
-                Multiples
+                Múltiplos
               </a>
             </Link>
           </li>
           <li>
             <Link href="/movies">
               <a className={pathname === "/movies" ? styles.active : ""}>
-                Movies
+                Películas
               </a>
             </Link>
           </li>
