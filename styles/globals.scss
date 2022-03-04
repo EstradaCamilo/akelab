@@ -32,11 +32,11 @@
     @apply cursor-pointer w-fit;
   }
   main {
-    @apply container mt-12 px-4 py-4 2xl:px-0;
+    @apply container mt-14 px-4 py-4 2xl:px-0;
   }
   #__next {
     @apply bg-slate-50;
-    min-height: calc(100vh - 48px);
+    min-height: calc(100vh - 56px);
   }
 }
 
