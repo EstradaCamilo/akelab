@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 
 export default function CardMovie({ movie }) {
-  console.log(movie);
+  //console.log(movie);
   return (
     <article className={`box ${styles.cardMovie}`}>
       <h2 className={styles.title}>{movie.title}</h2>

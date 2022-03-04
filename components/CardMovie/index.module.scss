@@ -16,9 +16,13 @@ article.cardMovie {
   }
   .meta {
     div {
-        @apply flex gap-2;
+      @apply flex gap-2;
       p:last-child {
         @apply font-light;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
       }
     }
   }

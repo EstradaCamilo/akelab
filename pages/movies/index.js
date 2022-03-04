@@ -1,5 +1,7 @@
 import styles from "./index.module.scss";
 import Head from "next/head";
+import { useForm } from "hooks/useForm";
+import { useEffect, useState } from "react";
 import MainLayout from "components/MainLayout";
 import CardMovie from "components/CardMovie";
 import { Popover } from "@headlessui/react";
@@ -692,6 +694,86 @@ export default function Multiples() {
       release_date: "1999-03-30",
     },
   ];
+
+  const genders = [
+    {
+      id: 28,
+      name: "Acción",
+    },
+    {
+      id: 12,
+      name: "Aventura",
+    },
+    {
+      id: 16,
+      name: "Animación",
+    },
+    {
+      id: 35,
+      name: "Comedia",
+    },
+    {
+      id: 80,
+      name: "Crimen",
+    },
+    {
+      id: 99,
+      name: "Documental",
+    },
+    {
+      id: 18,
+      name: "Drama",
+    },
+    {
+      id: 10751,
+      name: "Familia",
+    },
+    {
+      id: 14,
+      name: "Fantasía",
+    },
+    {
+      id: 36,
+      name: "Historia",
+    },
+    {
+      id: 27,
+      name: "Terror",
+    },
+    {
+      id: 10402,
+      name: "Música",
+    },
+    {
+      id: 9648,
+      name: "Misterio",
+    },
+    {
+      id: 10749,
+      name: "Romance",
+    },
+    {
+      id: 878,
+      name: "Ciencia ficción",
+    },
+    {
+      id: 10770,
+      name: "Película de TV",
+    },
+    {
+      id: 53,
+      name: "Suspense",
+    },
+    {
+      id: 10752,
+      name: "Bélica",
+    },
+    {
+      id: 37,
+      name: "Western",
+    },
+  ];
+
   return (
     <MainLayout>
       <Head>
@@ -705,19 +787,42 @@ export default function Multiples() {
           </form>
           <div className={styles.filters}>
             <Popover className={styles.genders}>
-              <Popover.Button className={styles.button}>
-                <span>Filtros</span>
-                <FilterIcon className={styles.icon} />
-              </Popover.Button>
-              <Popover.Panel className={styles.panel}>
-                <div>
-                  <div>xs</div>
-                </div>
-              </Popover.Panel>
+              {({ open }) => (
+                <>
+                  {/* <div className={`backdrop ${!open ? "hidden" : ""}`}></div> */}
+                  <Popover.Button className={styles.button}>
+                    <span>Filtros</span>
+                    <FilterIcon className={styles.icon} />
+                  </Popover.Button>
+                  <Popover.Panel className={styles.panel}>
+                    <div>
+                      <div>
+                        <h2>Generos</h2>
+                        <div>
+                          {genders.map((gender) => (
+                            <div
+                              className="flex items-center gap-2"
+                              key={gender.id}
+                            >
+                              <input
+                                type="checkbox"
+                                id={gender.id}
+                                name={gender.id}
+                              />
+                              <label htmlFor={gender.id}>{gender.name}</label>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Popover.Panel>
+                </>
+              )}
             </Popover>
             <Popover className={styles.order}>
               {({ open }) => (
                 <>
+                  {/* <div className={`backdrop ${!open ? "hidden" : ""}`}></div> */}
                   <Popover.Button className={styles.button}>
                     <span>Ordenar</span>
                     {open ? (
@@ -732,7 +837,18 @@ export default function Multiples() {
                   </Popover.Button>
                   <Popover.Panel className={styles.panel}>
                     <div>
-                      <div>xs</div>
+                      <div>
+                        <h2>Fecha</h2>
+                        <div>
+                          <button>Nuevas - Antiguas</button>
+                          <button>Antiguas - Nuevas</button>
+                        </div>
+                        <h2>Calificación</h2>
+                        <div>
+                          <button>0 - 10 Puntos</button>
+                          <button>10 - 0 Puntos</button>
+                        </div>
+                      </div>
                     </div>
                   </Popover.Panel>
                 </>

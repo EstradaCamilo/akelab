@@ -5,7 +5,7 @@ export const useForm = (initialValues = {}, onSubmit) => {
 
   const handleInputChange = ({ target }) => {
     const name = target.name;
-    const value = target === "checkbox" ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     setValues({ ...values, [name]: value });
   };
 

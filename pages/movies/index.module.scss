@@ -15,9 +15,39 @@
       @apply flex gap-4;
       .genders {
         @apply flex relative w-full sm:w-auto;
+        .panel {
+          @apply absolute z-20 mt-14 w-full sm:w-44;
+          > div {
+            @apply overflow-hidden rounded-md border border-slate-100;
+            > div {
+              @apply relative grid gap-2 bg-white p-4;
+              h2{
+                @apply text-slate-500;
+              }
+            }
+          }
+        }
       }
       .order {
         @apply flex relative w-full sm:w-auto;
+        .panel {
+          @apply absolute z-20 mt-14 w-full sm:w-44;
+          > div {
+            @apply overflow-hidden rounded-md border border-slate-100;
+            > div {
+              @apply relative grid gap-2 bg-white p-4;
+              h2{
+                @apply text-slate-500;
+              }
+              div{
+                @apply flex flex-col;
+                button{
+                  @apply flex hover:text-indigo-600;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -27,17 +57,11 @@
 }
 
 .button {
-  @apply w-full flex justify-center items-center gap-2 text-indigo-600 bg-indigo-50 rounded-md py-2 px-4;
-  .icon {
-    @apply h-4 w-4;
+  @apply w-full flex justify-center items-center gap-2 bg-indigo-50 rounded-md py-2 px-4;
+  span {
+    @apply text-indigo-600;
   }
-}
-.panel {
-  @apply absolute z-10 mt-10 w-full sm:w-64;
-  > div {
-    @apply overflow-hidden rounded-md border border-slate-100;
-    > div {
-      @apply relative grid gap-4 bg-white p-4;
-    }
+  .icon {
+    @apply h-4 w-4 text-indigo-600;
   }
 }
