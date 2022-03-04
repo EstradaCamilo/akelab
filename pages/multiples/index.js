@@ -4,15 +4,15 @@ import MainLayout from "components/MainLayout";
 import { useForm } from "hooks/useForm";
 import { useState } from "react";
 
-export default function Fibonacci() {
+export default function Multiples() {
   const initialValues = { number: 0 };
-  const [fibonacci, setFibonacci] = useState([]);
+  const [numbers, setNumbers] = useState([]);
 
   const onSubmit = () => {
     if (values.number < 1) {
       alert("error");
     } else {
-      setFibonacci(generateFibonacci(values.number));
+      setNumbers(generateNumbers(values.number));
     }
   };
 
@@ -21,24 +21,28 @@ export default function Fibonacci() {
     onSubmit
   );
 
-  const generateFibonacci = (number) => {
-    let initialFibonacci = [1, 1];
-    if (number == 1) {
-      return [1];
-    } else if (number > 2) {
-      for (let i = 2; i < number; i++) {
-        initialFibonacci[i] = initialFibonacci[i - 2] + initialFibonacci[i - 1];
+  const generateNumbers = (number) => {
+    const initialNumbers = new Array(parseInt(number));
+    for (let i = 0; i < number; i++) {
+      if ((i + 1) % 3 == 0 && (i + 1) % 5 == 0) {
+        initialNumbers[i] = "akelab";
+      } else if ((i + 1) % 3 == 0) {
+        initialNumbers[i] = "ake";
+      } else if ((i + 1) % 5 == 0) {
+        initialNumbers[i] = "lab";
+      } else {
+        initialNumbers[i] = i + 1;
       }
     }
-    return initialFibonacci;
+    return initialNumbers;
   };
 
   return (
     <MainLayout>
       <Head>
-        <title>Fibonacci</title>
+        <title>Multiples</title>
       </Head>
-      <div className={styles.fibonacci}>
+      <div className={styles.multiples}>
         <form className={`box`} onSubmit={handleSubmit}>
           <div className={`customInput`}>
             <label htmlFor="number">Number</label>
@@ -55,10 +59,10 @@ export default function Fibonacci() {
             Generate
           </button>
         </form>
-        {fibonacci.length > 0 ? (
+        {numbers.length > 0 ? (
           <>
             <div className={`box ${styles.numbers}`}>
-              {fibonacci.map((number, i) => (
+              {numbers.map((number, i) => (
                 <div key={i}>{number}</div>
               ))}
             </div>
