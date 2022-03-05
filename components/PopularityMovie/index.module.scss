@@ -1,0 +1,17 @@
+.popularityMovie {
+    @apply flex;
+    ul {
+        @apply flex gap-1;
+        li {
+            .icon {
+                @apply h-5 w-5;
+                &.accent{
+                    @apply text-indigo-600;
+                }
+                &.default{
+                    @apply text-slate-400;
+                }
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ export default function Fibonacci() {
 
   const onSubmit = () => {
     if (values.number < 1) {
-      alert("error");
+      alert("El número debe ser mayoy o igual a 1");
     } else {
       setFibonacci(generateFibonacci(values.number));
     }

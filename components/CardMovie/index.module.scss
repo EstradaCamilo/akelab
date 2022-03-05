@@ -7,6 +7,9 @@ article.cardMovie {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
+  .image {
+    @apply rounded-md;
+  }
   .description {
     @apply font-light;
     display: -webkit-box;
@@ -23,6 +26,14 @@ article.cardMovie {
         overflow: hidden;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+      }
+      .genders{
+        @apply flex gap-2;
+        li{
+          span{
+            @apply text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-md;
+          }
+        }
       }
     }
   }
