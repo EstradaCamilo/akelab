@@ -38,8 +38,6 @@ export default function Multiples() {
     return "";
   };
 
-  console.log(getGender(28));
-
   return (
     <MainLayout>
       <Head>
