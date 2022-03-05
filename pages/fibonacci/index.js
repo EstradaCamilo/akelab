@@ -42,7 +42,7 @@ export default function Fibonacci() {
         <h1>Fibonacci</h1>
         <form className={`box`} onSubmit={handleSubmit}>
           <div className={`customInput`}>
-            <label htmlFor="number">Number</label>
+            <label htmlFor="number">Número</label>
             <input
               id="number"
               name="number"
