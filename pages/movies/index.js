@@ -9,36 +9,38 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@heroicons/react/outline";
+import { useForm } from "hooks/useForm";
 
 export default function Movies({
   initialImageUrl,
   initialGenders,
   initialMovies,
 }) {
-  const [movies, setMovies] = useState(initialMovies);
-  const [genders, setGenders] = useState(initialGenders);
   const [imageUrl, setImageUrl] = useState(initialImageUrl);
-
-  const [keyword, setKeyword] = useState("");
+  const [genders, setGenders] = useState(initialGenders);
+  const [movies, setMovies] = useState(initialMovies);
 
   const getNameGender = (id) => {
     return genders.find((gender) => gender.id == id).name;
   };
 
-  // Filtrar película
-  // useEffect(() => {
-  //   if (keyword == "") {
-  //     setMovies(movies);
-  //   } else {
-  //     setMovies(
-  //       movies.filter(({ title }) =>
-  //         title.toLowerCase().includes(keyword.trim().toLowerCase())
-  //       )
-  //     );
-  //   }
-  // }, [keyword, movies]);
+  const search = { keyword: "" };
 
-  // Obtener nombre de género
+  const { values: valuesSearch, handleInputChange: handleInputChangeSearch } =
+    useForm(search);
+
+  useEffect(() => {
+    const { keyword } = valuesSearch;
+    if (keyword != "") {
+      setMovies(
+        initialMovies.filter(({ title }) =>
+          title.toLowerCase().includes(keyword.toLowerCase())
+        )
+      );
+    } else {
+      setMovies(initialMovies);
+    }
+  }, [initialMovies, valuesSearch]);
 
   return (
     <MainLayout>
@@ -50,9 +52,10 @@ export default function Movies({
         <div className={styles.options}>
           <form className={styles.search}>
             <input
+              id="keyword"
+              name="keyword"
               type="search"
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
+              onChange={handleInputChangeSearch}
             />
           </form>
           <div className={styles.filters}>

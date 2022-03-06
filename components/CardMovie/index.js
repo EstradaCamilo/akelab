@@ -4,7 +4,7 @@ import PopularityMovie from "components/PopularityMovie";
 export default function CardMovie({ movie, imageUrl, getNameGender }) {
   return (
     <article className={`box ${styles.cardMovie}`}>
-      <h2 className={styles.title}>{movie.title}</h2>
+      {/* <h2 className={styles.title}>{movie.title}</h2> */}
       <img
         className={styles.image}
         src={imageUrl + movie.backdrop_path}
