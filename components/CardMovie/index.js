@@ -1,11 +1,15 @@
 import styles from "./index.module.scss";
 import PopularityMovie from "components/PopularityMovie";
 
-export default function CardMovie({ movie, baseImg, getGender }) {
+export default function CardMovie({ movie, baseImg, getNameGender }) {
   return (
     <article className={`box ${styles.cardMovie}`}>
       <h2 className={styles.title}>{movie.title}</h2>
-      <img className={styles.image} src={`${baseImg}${movie.backdrop_path}`} />
+      <img
+        className={styles.image}
+        src={baseImg + movie.backdrop_path}
+        alt={movie.title}
+      />
       <p className={styles.description}>{movie.overview}</p>
       <div className={styles.meta}>
         <div>
@@ -21,7 +25,7 @@ export default function CardMovie({ movie, baseImg, getGender }) {
           <ul className={styles.genders}>
             {movie.genre_ids.map((gender, key) => (
               <li key={key}>
-                <span>{getGender(gender)}</span>
+                <span>{getNameGender(gender)}</span>
               </li>
             ))}
           </ul>

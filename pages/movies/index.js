@@ -14,10 +14,11 @@ export default function Multiples() {
   const [movies, setMovies] = useState([]);
   const [genders, setGenders] = useState([]);
   const [baseImg, setBaseImg] = useState("");
-  const [keyword, setKeyword] = useState("");
 
+  const [keyword, setKeyword] = useState("");
   const [moviesFiltered, setMoviesFiltered] = useState([]);
 
+  // Obtener datos
   useEffect(() => {
     fetch(`${window.location.origin}/api/movies?akelab=123456789`, {
       method: "GET",
@@ -35,6 +36,7 @@ export default function Multiples() {
       });
   }, []);
 
+  // Filtrar película
   useEffect(() => {
     if (keyword == "") {
       setMoviesFiltered(movies);
@@ -47,7 +49,8 @@ export default function Multiples() {
     }
   }, [keyword, movies]);
 
-  const getGender = (id) => {
+  // Obtener nombre de género
+  const getNameGender = (id) => {
     if (genders.length > 0) {
       return genders.find((gender) => gender.id == id).name;
     }
@@ -146,7 +149,7 @@ export default function Multiples() {
               key={movie.id}
               movie={movie}
               baseImg={baseImg}
-              getGender={getGender}
+              getNameGender={getNameGender}
             />
           ))}
         </div>
