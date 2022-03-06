@@ -8,7 +8,7 @@ export default function Multiples() {
   const initialValues = { number: 0 };
   const [numbers, setNumbers] = useState([]);
 
-  const onSubmit = () => {
+  const onSubmit = (values) => {
     if (values.number < 1) {
       alert("El número debe ser mayoy o igual a 1");
     } else {
@@ -16,10 +16,10 @@ export default function Multiples() {
     }
   };
 
-  const { values, handleInputChange, handleSubmit } = useForm(
-    initialValues,
-    onSubmit
-  );
+  const {
+    handleInputChange: handleInputChangeMultiples,
+    handleSubmit: handleSubmitMultiples,
+  } = useForm(initialValues, onSubmit);
 
   const generateNumbers = (number) => {
     const initialNumbers = new Array(parseInt(number));
@@ -44,7 +44,7 @@ export default function Multiples() {
       </Head>
       <div className={styles.multiples}>
         <h1>Múltiplos</h1>
-        <form className={`box`} onSubmit={handleSubmit}>
+        <form className={`box`} onSubmit={handleSubmitMultiples}>
           <div className={`customInput`}>
             <label htmlFor="number">Número</label>
             <input
@@ -53,7 +53,7 @@ export default function Multiples() {
               type="number"
               min="1"
               placeholder="Ingrese un número"
-              onChange={handleInputChange}
+              onChange={handleInputChangeMultiples}
             />
           </div>
           <button type="submit" className="btn btn-indigo">

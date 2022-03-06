@@ -8,7 +8,7 @@ export default function Fibonacci() {
   const initialValues = { number: 0 };
   const [fibonacci, setFibonacci] = useState([]);
 
-  const onSubmit = () => {
+  const onSubmit = (values) => {
     if (values.number < 1) {
       alert("El número debe ser mayoy o igual a 1");
     } else {
@@ -16,10 +16,10 @@ export default function Fibonacci() {
     }
   };
 
-  const { values, handleInputChange, handleSubmit } = useForm(
-    initialValues,
-    onSubmit
-  );
+  const {
+    handleInputChange: handleInputChangeFibonacci,
+    handleSubmit: handleSubmitFibonacci,
+  } = useForm(initialValues, onSubmit);
 
   const generateFibonacci = (number) => {
     let initialFibonacci = [1, 1];
@@ -40,7 +40,7 @@ export default function Fibonacci() {
       </Head>
       <div className={styles.fibonacci}>
         <h1>Fibonacci</h1>
-        <form className={`box`} onSubmit={handleSubmit}>
+        <form className={`box`} onSubmit={handleSubmitFibonacci}>
           <div className={`customInput`}>
             <label htmlFor="number">Número</label>
             <input
@@ -49,7 +49,7 @@ export default function Fibonacci() {
               type="number"
               min="1"
               placeholder="Ingrese un número"
-              onChange={handleInputChange}
+              onChange={handleInputChangeFibonacci}
             />
           </div>
           <button type="submit" className="btn btn-indigo">

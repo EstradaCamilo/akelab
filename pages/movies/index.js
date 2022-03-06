@@ -26,7 +26,7 @@ export default function Movies({
 
   const search = { keyword: "" };
 
-  const { values: valuesSearch, handleInputChange: handleInputChangeSearch } =
+  const { values: valuesSearch, handleInputChange: handleInputChangeSearch , handleSubmit:handleSubmitSearch} =
     useForm(search);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Movies({
       <div className={styles.movies}>
         <h1>Películas</h1>
         <div className={styles.options}>
-          <form className={styles.search} autoComplete="off">
+          <form className={styles.search} onSubmit={handleSubmitSearch} autoComplete="off">
             <input
               id="keyword"
               name="keyword"
