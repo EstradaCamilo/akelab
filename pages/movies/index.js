@@ -50,7 +50,7 @@ export default function Movies({
       <div className={styles.movies}>
         <h1>Películas</h1>
         <div className={styles.options}>
-          <form className={styles.search}>
+          <form className={styles.search} autoComplete="off">
             <input
               id="keyword"
               name="keyword"
