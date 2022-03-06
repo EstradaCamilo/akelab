@@ -10,52 +10,35 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/outline";
 
-export default function Multiples() {
-  const [movies, setMovies] = useState([]);
-  const [genders, setGenders] = useState([]);
-  const [baseImg, setBaseImg] = useState("");
+export default function Movies({
+  initialImageUrl,
+  initialGenders,
+  initialMovies,
+}) {
+  const [movies, setMovies] = useState(initialMovies);
+  const [genders, setGenders] = useState(initialGenders);
+  const [imageUrl, setImageUrl] = useState(initialImageUrl);
 
   const [keyword, setKeyword] = useState("");
-  const [moviesFiltered, setMoviesFiltered] = useState([]);
 
-  // Obtener datos
-  useEffect(() => {
-    fetch(`${window.location.origin}/api/movies?akelab=123456789`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.movies) {
-          setMovies(data.movies.results);
-          setMoviesFiltered(data.movies.results);
-          setGenders(data.movies.genres);
-          setBaseImg(data.movies.images_url);
-        } else {
-          alert("ERROR: " + data.msg);
-        }
-      });
-  }, []);
+  const getNameGender = (id) => {
+    return genders.find((gender) => gender.id == id).name;
+  };
 
   // Filtrar película
-  useEffect(() => {
-    if (keyword == "") {
-      setMoviesFiltered(movies);
-    } else {
-      setMoviesFiltered(
-        movies.filter(({ title }) =>
-          title.toLowerCase().includes(keyword.trim().toLowerCase())
-        )
-      );
-    }
-  }, [keyword, movies]);
+  // useEffect(() => {
+  //   if (keyword == "") {
+  //     setMovies(movies);
+  //   } else {
+  //     setMovies(
+  //       movies.filter(({ title }) =>
+  //         title.toLowerCase().includes(keyword.trim().toLowerCase())
+  //       )
+  //     );
+  //   }
+  // }, [keyword, movies]);
 
   // Obtener nombre de género
-  const getNameGender = (id) => {
-    if (genders.length > 0) {
-      return genders.find((gender) => gender.id == id).name;
-    }
-    return "";
-  };
 
   return (
     <MainLayout>
@@ -144,11 +127,11 @@ export default function Multiples() {
           </div>
         </div>
         <div className={styles.collectionMovies}>
-          {moviesFiltered.map((movie) => (
+          {movies.map((movie) => (
             <CardMovie
               key={movie.id}
               movie={movie}
-              baseImg={baseImg}
+              imageUrl={imageUrl}
               getNameGender={getNameGender}
             />
           ))}
@@ -156,4 +139,18 @@ export default function Multiples() {
       </div>
     </MainLayout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const url = `http://${context.req.headers.host}/api/movies?akelab=123456789`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const { imagesUrl, genders, movies } = data;
+  return {
+    props: {
+      initialImageUrl: imagesUrl ?? "",
+      initialGenders: genders ?? [],
+      initialMovies: movies ?? [],
+    },
+  };
 }

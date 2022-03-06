@@ -1,13 +1,13 @@
 import styles from "./index.module.scss";
 import PopularityMovie from "components/PopularityMovie";
 
-export default function CardMovie({ movie, baseImg, getNameGender }) {
+export default function CardMovie({ movie, imageUrl, getNameGender }) {
   return (
     <article className={`box ${styles.cardMovie}`}>
       <h2 className={styles.title}>{movie.title}</h2>
       <img
         className={styles.image}
-        src={baseImg + movie.backdrop_path}
+        src={imageUrl + movie.backdrop_path}
         alt={movie.title}
       />
       <p className={styles.description}>{movie.overview}</p>
