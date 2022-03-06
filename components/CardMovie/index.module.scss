@@ -18,6 +18,7 @@ article.cardMovie {
     -webkit-box-orient: vertical;
   }
   .meta {
+    @apply grid gap-1;
     div {
       @apply flex gap-2;
       p:last-child {

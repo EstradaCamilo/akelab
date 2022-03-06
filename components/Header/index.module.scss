@@ -1,11 +1,11 @@
 .header {
-  @apply fixed top-0 left-0 w-full h-14 z-10 bg-white border-b border-slate-100 flex;
+  @apply w-full fixed top-0 left-0  h-14 z-10 bg-white border-b border-slate-100 flex;
   nav {
-    @apply flex;
+    @apply w-full flex  px-4;
     ul {
-      @apply flex items-center gap-2 sm:gap-3 px-4;
+      @apply w-full flex items-center justify-between sm:justify-start gap-2 sm:gap-3;
       li {
-          @apply flex;
+        @apply flex;
         max-height: 40px;
         min-height: 40px;
         a {
