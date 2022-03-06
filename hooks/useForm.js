@@ -11,7 +11,7 @@ export const useForm = (initialValues = {}, onSubmit) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit();
+    onSubmit?.(values);
   };
 
   return { values, handleInputChange, handleSubmit };
