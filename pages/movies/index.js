@@ -54,7 +54,7 @@ export default function Movies({
             <input
               id="keyword"
               name="keyword"
-              type="search"
+              type="text"
               onChange={handleInputChangeSearch}
             />
           </form>
