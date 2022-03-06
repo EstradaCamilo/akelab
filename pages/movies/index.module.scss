@@ -24,6 +24,9 @@
               h2 {
                 @apply text-slate-500;
               }
+              .listGenders {
+                @apply h-40 sm:h-full overflow-auto;
+              }
             }
           }
         }

@@ -71,7 +71,7 @@ export default function Movies({
                     <div>
                       <div>
                         <h2>Generos</h2>
-                        <div>
+                        <div className={styles.listGenders}>
                           {genders.map((gender) => (
                             <div
                               className="flex items-center gap-2"
