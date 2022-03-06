@@ -73,10 +73,7 @@ export default function Movies({
                         <h2>Generos</h2>
                         <div className={styles.listGenders}>
                           {genders.map((gender) => (
-                            <div
-                              className="flex items-center gap-2"
-                              key={gender.id}
-                            >
+                            <div key={gender.id}>
                               <input
                                 type="checkbox"
                                 id={gender.id}
